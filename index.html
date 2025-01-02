@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d694ff;
+        }
+
+        .card {
+            width: 600px;
+            height: 550px;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.8s;
+        }
+
+        .card.is-flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .front {
+            background-color: #9d00ff;
+            color: white;
+        }
+
+        .front h1 {
+            font-family: SnellRoundhand;
+            font-size: 3.3rem;
+            margin: 10px 0;
+        }
+
+        .front p {
+            font-family: SnellRoundhand;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .greet-btn {
+            padding: 10px 40px;
+            background-color: white;
+            border: none;
+            color: #9d00ff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            animation: glow 0.5s infinite alternate;
+        }
+
+        .greet-btn:hover {
+            background-color: #d694ff;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px #9d00ff, 0 0 20px #ffffff;
+            }
+            to {
+                box-shadow: 0 0 20px #9d00ff, 0 0 40px #ffffff;
+            }
+        }
+
+        .back {
+            background-color: #ffffff;
+            color: #333;
+            transform: rotateY(180deg);
+            text-align: left;
+            font-family: Georgia;
+            font-size: 1rem;
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Start content from the top */
+            align-items: flex-start;   /* Left align */
+            overflow-y: auto;   /* Allow vertical scrolling */
+            height: 100%;
+        }
+
+        
+        .letter-content {
+            line-height: 1.6;
+        }
+
+        .letter-content .greeting {
+            margin-bottom: 10px;
+        }
+
+        .letter-content .body {
+            margin-bottom: 10px;
+        }
+
+        .letter-content .signature {
+            margin-top: 30px;
+            font-style: italic;
+            text-align: right;
+        }
+
+        .back p {
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .glitter-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: SnellRoundhand;
+            color: #9d00ff;
+            text-shadow: 0 0 8px #f0d9ff, 0 0 15px #f0d9ff;
+        }
+        <link href="
+https://cdn.jsdelivr.net/npm/fonts-archive-snell-roundhand@0.0.1/SnellRoundhand.min.css
+" rel="stylesheet">
+    </style>
+</head>
+
+<body>
+    <div class="card" id="card">
+        <div class="card-inner">
+            <!-- Front Page -->
+            <div class="front">
+                <h1>Happy New Year!</h1>
+                <p>Wishing you and your loved ones a prosperous and joyful year ahead 😊🎉</p>
+                <br>
+                <button class="greet-btn" onclick="flipCard()">Click Here</button>
+            </div>
+            <!-- Back Page -->
+            <div class="back">
+              <div class="letter-content">
+                <p class="glitter-text">Dear Kelsey,</p>
+                <p>As we step into a brand new year, I wanted to express my heartfelt gratitude for your guidance, support, and leadership during our time working together. You are truly inspiring, leading by example rather than mere words—a quality that showcases your exceptional leadership. The way you handle everything with such warmth and positivity—it’s another of the many reasons you're an amazing leader! And wherever you go, never lose that cheerfulness! Wishing you and your loved ones a year filled with joy, good health, and success. May this year bring you as much positivity and growth as you’ve inspired in others, including me.</p>
+                <p>Have a Great 2025,</p>
+                <p class="glitter-text">Jaideep</p>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function flipCard() {
+            const card = document.getElementById("card");
+            card.classList.toggle("is-flipped");
+        }
+    </script>
+</body>
+
+</html>
