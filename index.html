@@ -114,9 +114,13 @@
         
         .letter-content {
             line-height: 1.6;
+            width: 100%;
+            max-width: 100%;
         }
 
         .letter-content .greeting {
+            word-wrap: break-word; /* Ensure long words wrap inside the card */
+            white-space: normal;   /* Allow text to wrap */
             margin-bottom: 10px;
         }
 
@@ -142,6 +146,13 @@
             color: #9d00ff;
             text-shadow: 0 0 8px #f0d9ff, 0 0 15px #f0d9ff;
         }
+        img {
+            max-width: 100%; /* Ensure images scale down to fit within the card width */
+            height: auto;    /* Maintain aspect ratio of images */
+            display: block;  /* Prevent images from breaking layout */
+            margin-bottom: 10px; /* Space between images and text */
+        }
+        
         <link href="
 https://cdn.jsdelivr.net/npm/fonts-archive-snell-roundhand@0.0.1/SnellRoundhand.min.css
 " rel="stylesheet">
